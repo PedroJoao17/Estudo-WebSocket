@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <input id="msg" placeholder="Digite uma mensagem" />
+  <button onclick="sendMsg()">Enviar</button>
+  <ul id="log"></ul>
+
+  <script>
+    const socket = new WebSocket("ws://localhost:8080");
+
+    socket.onopen = () => console.log("Conectado ao servidor WebSocket");
+
+    socket.onmessage = event => {
+      const li = document.createElement("li");
+      li.textContent = event.data;
+      document.getElementById("log").appendChild(li);
+    };
+
+    socket.onerror = error => {
+      console.error("Erro na conexão WebSocket:", error);
+    };
+
+    function sendMsg() {
+      const msg = document.getElementById("msg").value;
+      socket.send(msg);
+    }
+  </script>
+</body>
+</html>
