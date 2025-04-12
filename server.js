@@ -24,7 +24,7 @@ const server = http.createServer((req, res) => {
 // WebSocket usando o mesmo servidor HTTP
 const wss = new WebSocket.Server({ server });
 
-console.log('Servidor WebSocket escutando na porta 8080');
+console.log(`websocket na porta ${PORT}`);
 
 wss.on('connection', socket => {
   console.log('Cliente conectado');
@@ -45,7 +45,6 @@ wss.on('connection', socket => {
   });
 });
 
-// Inicia o servidor na porta 8080
 server.listen(PORT, () => {
   console.log(`Servidor HTTP disponível em http://localhost:${PORT}`);
 });
