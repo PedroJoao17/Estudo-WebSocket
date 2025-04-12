@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/PedroJoao17/Estudo-WebSocket#readme",
   "dependencies": {
+    "dotenv": "^16.5.0",
     "ws": "^8.18.1"
   }
 }

@@ -3,6 +3,8 @@ const fs = require('fs');
 const path = require('path');
 const WebSocket = require('ws');
 
+const PORT = process.env.PORT || 3000;
+
 // Cria um servidor HTTP simples para servir o index.html
 const server = http.createServer((req, res) => {
   const filePath = path.join(__dirname, 'index.html');
@@ -44,6 +46,6 @@ wss.on('connection', socket => {
 });
 
 // Inicia o servidor na porta 8080
-server.listen(8080, () => {
-  console.log('Servidor HTTP disponível em http://localhost:8080');
+server.listen(PORT, () => {
+  console.log(`Servidor HTTP disponível em http://localhost:${PORT}`);
 });
